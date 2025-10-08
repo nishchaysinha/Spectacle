@@ -1,0 +1,7 @@
+{
+  "SuperSecretSecretOrganization/SecretProj1": "prod",
+  "SuperSecretSecretOrganization/SecretProj2": "main",
+  "SuperSecretSecretOrganization/SecretProj3": "production",
+  "SuperSecretSecretOrganization/SecretProj4": "master",
+  "SuperSecretSecretOrganization/SecretProj5": "main"
+}

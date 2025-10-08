@@ -1,11 +1,16 @@
 import json, re
 from core.parsing import norm_pkg, parse_requirements
-from core.github_client import get_head, list_tree_paths, try_blob
+from core.github_client import get_head, get_branch_oid, list_tree_paths, try_blob
 
-def detect_frameworks(owner, name, branch, rules, target_filenames, q_head, q_blob):
-    bname, oid = get_head(owner, name, q_head)
-    if not branch:
-        branch = bname or "HEAD"
+def detect_frameworks(owner, name, branch_from_summary, rules, target_filenames, q_head, q_blob, branch_override=None):
+    # Choose branch + tree OID
+    branch = branch_override or branch_from_summary or "HEAD"
+    oid = None
+    if branch_override:
+        oid = get_branch_oid(owner, name, branch_override)
+    if not oid:
+        # default branch fallback via GraphQL
+        _, oid = get_head(owner, name, q_head)
 
     evidence = {}
     if oid:

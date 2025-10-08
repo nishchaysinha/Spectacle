@@ -51,6 +51,17 @@ def get_head(owner, name, head_query):
         return "HEAD", None
     return d["defaultBranchRef"]["name"], d["defaultBranchRef"]["target"]["oid"]
 
+def get_branch_oid(owner, name, branch):
+    """REST: branch -> commit oid (sha). Returns None if missing."""
+    url = f"{REST}/repos/{owner}/{name}/branches/{branch}"
+    r = S.get(url, timeout=60)
+    if r.status_code != 200:
+        return None
+    try:
+        return (r.json().get("commit") or {}).get("sha")
+    except Exception:
+        return None
+
 def list_tree_paths(owner, name, tree_oid, target_filenames):
     url = f"{REST}/repos/{owner}/{name}/git/trees/{tree_oid}"
     r = S.get(url, params={"recursive": "1"}, timeout=60)

@@ -1,0 +1,7 @@
+[
+  { "repo": "SuperSecretSecretOrganization/SecretProj1", "branch": "prod" },
+  { "repo": "SuperSecretSecretOrganization/SecretProj2", "branch": "main" },
+  { "repo": "SuperSecretSecretOrganization/SecretProj3", "branch": "production" },
+  { "repo": "SuperSecretSecretOrganization/SecretProj4", "branch": "master" },
+  { "repo": "SuperSecretSecretOrganization/SecretProj5", "branch": "main" }
+]
