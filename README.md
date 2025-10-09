@@ -122,6 +122,7 @@ Columns:
 * `repo` — `owner/repo`
 * `name` — repository name
 * `url` — GitHub URL
+* `branch` — repo branch
 * `contributors` — JSON array of usernames
 * `languages` — JSON array of `[language, bytes]`
 * `frameworks` — JSON array of `[framework, evidence_path]`
@@ -130,9 +131,9 @@ Columns:
 Example:
 
 ```csv
-repo,name,url,contributors,languages,frameworks,error
-octocat/hello-world,hello-world,https://github.com/octocat/hello-world,["octocat"],[ ["Go",23102] ],[ ["Fiber","go.mod"] ],
-octo-org/web-service,web-service,https://github.com/octo-org/web-service,["alice","bob"],[ ["Python",47834] ],[ ["FastAPI","requirements.txt"] ],
+repo,name,url,branch,contributors,languages,frameworks,error
+octocat/hello-world,hello-world,https://github.com/octocat/hello-world,main,["octocat"],[ ["Go",23102] ],[ ["Fiber","go.mod"] ],
+octo-org/web-service,web-service,https://github.com/octo-org/web-service,dev,["alice","bob"],[ ["Python",47834] ],[ ["FastAPI","requirements.txt"] ],
 ```
 
 ---
